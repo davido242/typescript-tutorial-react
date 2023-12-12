@@ -2,15 +2,12 @@ import React, { useEffect } from 'react';
 
 function App() {
               
-  function printMileage(mileage: number | null | undefined) {
-    console.log(`Mileage: ${mileage ?? 'Not Available'}`);
+  function getSalue(): string | undefined {
+    return 'hello';
   }
               
-  printMileage(null); // Prints 'Mileage: Not Available'
-  
-  printMileage(0); // Prints 'Mileage: 0'
-  printMileage(50); // Prints 'Mileage: 0'
-  printMileage(undefined); // Prints 'Mileage: 0'
+  let value = getSalue();
+  console.log('value length: ' + value?.length);
 
 //  useEffect(() => {  
 //   class Person {
