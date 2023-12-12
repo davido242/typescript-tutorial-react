@@ -1,31 +1,16 @@
 import React, { useEffect } from 'react';
 
 function App() {
-  interface House {
-    sqft: number;
-    yard?: {
-      sqft: number;
-    };
+              
+  function printMileage(mileage: number | null | undefined) {
+    console.log(`Mileage: ${mileage ?? 'Not Available'}`);
   }
               
-  function printYardSize(house: House) {
-    const yardSize = house.yard?.sqft;
+  printMileage(null); // Prints 'Mileage: Not Available'
   
-    if (yardSize === undefined) {
-      console.log('No yard');
-    } else {
-      console.log(`Yard is ${yardSize} sqft`);
-    }
-  }
-              
-  let home: House = {
-    sqft: 500,
-    yard: {
-      sqft: 600
-    }
-  };
-              
-  printYardSize(home); // Prints 'No yard'
+  printMileage(0); // Prints 'Mileage: 0'
+  printMileage(50); // Prints 'Mileage: 0'
+  printMileage(undefined); // Prints 'Mileage: 0'
 
 //  useEffect(() => {  
 //   class Person {
