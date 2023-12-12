@@ -1,24 +1,31 @@
 import React, { useEffect } from 'react';
 
 function App() {
-  interface Person {
-    name: string;
-    age: number;
-    sex: string;
+  interface House {
+    sqft: number;
+    yard?: {
+      sqft: number;
+    };
   }
-  // `keyof Person` here creates a union type of "name" and "age", other strings will not be allowed
-  function printPersonProperty(person: Person, property: keyof Person) {
-    console.log(`Printing person property ${property}: "${person[property]}"`);
-  }
+              
+  function printYardSize(house: House) {
+    const yardSize = house.yard?.sqft;
   
-  let person = {
-    name: "Max",
-    age: 27,
-    sex: "Male"
+    if (yardSize === undefined) {
+      console.log('No yard');
+    } else {
+      console.log(`Yard is ${yardSize} sqft`);
+    }
+  }
+              
+  let home: House = {
+    sqft: 500,
+    yard: {
+      sqft: 600
+    }
   };
-
-  printPersonProperty(person, "age");
-  printPersonProperty(person, "sex");
+              
+  printYardSize(home); // Prints 'No yard'
 
 //  useEffect(() => {  
 //   class Person {
